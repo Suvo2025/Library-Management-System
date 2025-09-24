@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="static/style1.css">
+</head>
+<body>
+  <h1 id="reload-heading" onclick="window.location.reload()" style="cursor: pointer;">Library Management System</h1>
+
+  <section>
+    <h2>Books</h2>
+    <form id="book-form">
+      <input type="text" id="book-title" placeholder="Title" required>
+      <input type="text" id="book-author" placeholder="Author" required>
+      <input type="text" id="book-isbn" placeholder="ISBN" required>
+      <input type="text" id="book-genre" placeholder="Genre" required>
+      <button type="submit">Add Book</button>
+    </form>
+    
+    <div class="transaction-form">
+      <h3>Update Book</h3>
+      <form id="update-book-form">
+          <input type="number" id="update-book-id" placeholder="Book ID" required>
+          <input type="text" id="update-book-title" placeholder="New Title">
+          <input type="text" id="update-book-author" placeholder="New Author">
+          <input type="text" id="update-book-isbn" placeholder="New ISBN">
+          <input type="text" id="update-book-genre" placeholder="New Genre">
+          <button type="submit">Update Book</button>
+      </form>
+    </div>
+    
+    <div class="transaction-form">
+      <h3>Delete Book</h3>
+      <form id="delete-book-form">
+          <input type="number" id="delete-book-id" placeholder="Book ID" required>
+          <button type="submit">Delete Book</button>
+      </form>
+    </div>
+
+    <div class="search-form">
+        <input type="text" id="book-search" name="query" placeholder="Search books...">
+        <button onclick="loadBooks()">Search</button>
+        <select id="book-sort" onchange="loadBooks()">
+            <option value="">Sort By</option>
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+            <option value="available">Availability</option>
+            <option value="genre">Genre</option>
+        </select>
+    </div>
+
+    <h3>Book List:</h3>
+    <ul id="book-list"></ul>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Users</h2>
+    <form id="user-form">
+      <input type="text" id="user-name" placeholder="Name" required>
+      <input type="email" id="user-email" placeholder="Email" required>
+      <button type="submit">Add User</button>
+    </form>
+    
+    <div class="transaction-form">
+      <h3>Update User</h3>
+      <form id="update-user-form">
+          <input type="number" id="update-user-id" placeholder="User ID" required>
+          <input type="text" id="update-user-name" placeholder="New Name">
+          <input type="email" id="update-user-email" placeholder="New Email">
+          <button type="submit">Update User</button>
+      </form>
+    </div>
+    
+    <div class="transaction-form">
+      <h3>Delete User</h3>
+      <form id="delete-user-form">
+          <input type="number" id="delete-user-id" placeholder="User ID" required>
+          <button type="submit">Delete User</button>
+      </form>
+    </div>
+    
+    <div class="search-form">
+        <input type="text" id="user-search" name="query" placeholder="Search users...">
+        <button onclick="loadUsers()">Search</button>
+        <select id="user-sort" onchange="loadUsers()">
+            <option value="">Sort By</option>
+            <option value="name">Name</option>
+        </select>
+    </div>
+
+    <h3>User List:</h3>
+    <ul id="user-list"></ul>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Transactions</h2>
+    
+    <div class="transaction-form">
+      <h3>Issue Book</h3>
+      <form id="issue-form">
+        <input type="number" id="issue-user-id" placeholder="User ID" required>
+        <input type="number" id="issue-book-id" placeholder="Book ID" required>
+        <button type="submit">Issue Book</button>
+      </form>
+    </div>
+
+    <div class="transaction-form">
+      <h3>Return Book</h3>
+      <form id="return-form">
+        <input type="number" id="return-transaction-id" placeholder="Transaction ID" required>
+        <button type="submit">Return Book</button>
+      </form>
+    </div>
+
+    <div class="search-form">
+        <input type="text" id="transaction-search" name="query" placeholder="Search transactions...">
+        <button onclick="loadTransactions()">Search</button>
+    </div>
+
+    <h3>Transaction History:</h3>
+    <ul id="transaction-list"></ul>
+  </section>
+
+  <script src="static/script.js" defer></script>
+</body>
+</html>
